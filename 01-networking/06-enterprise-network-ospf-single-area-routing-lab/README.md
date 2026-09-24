@@ -1,4 +1,5 @@
 # Enterprise Network OSPF Single Area Routing Lab
+**Lab 06**
 
 **Domain:** Networking
 **Difficulty:** Intermediate

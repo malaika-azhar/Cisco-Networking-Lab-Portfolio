@@ -1,4 +1,5 @@
 # Enterprise Multi-Site Syslog Server Configuration
+**Lab 11**
 **Domain:** Network Security / IT Operations
 **Difficulty:** Intermediate — Advanced
 **Tools:** Cisco Packet Tracer

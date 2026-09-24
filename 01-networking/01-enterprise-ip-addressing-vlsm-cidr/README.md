@@ -1,4 +1,5 @@
 # Enterprise IP Addressing, Subnetting, VLSM & CIDR Optimization
+**Lab 01**
 
 **Domain:** Networking
 **Difficulty:** Intermediate — Advanced

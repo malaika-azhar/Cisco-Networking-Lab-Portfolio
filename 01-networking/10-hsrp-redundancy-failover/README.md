@@ -1,4 +1,5 @@
 # HSRP — Network Redundancy & Failover
+**Lab 10**
 
 **Domain:** Networking
 **Difficulty:** Intermediate — Advanced

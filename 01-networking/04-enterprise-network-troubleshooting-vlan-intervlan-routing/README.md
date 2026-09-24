@@ -1,4 +1,5 @@
 # Enterprise Network VLAN & InterVLAN Routing — Troubleshooting (Lab 4)
+**Lab 04**
 
 **Domain:** Networking
 **Difficulty:** Intermediate — Advanced

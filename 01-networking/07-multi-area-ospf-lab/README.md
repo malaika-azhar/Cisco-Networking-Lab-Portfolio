@@ -1,4 +1,5 @@
 # Multi-Area OSPF Routing Lab
+**Lab 07**
 
 **Domain:** Networking
 **Difficulty:** Intermediate — Advanced
