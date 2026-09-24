@@ -1,6 +1,8 @@
 <div align="center">
 
 # 🌐 Networking Labs — VLANs, Inter-VLAN Routing & DHCP
+**Lab 02**
+
 
 **1 Lab · Switching → Routing → Network Services · Cisco Packet Tracer**
 
