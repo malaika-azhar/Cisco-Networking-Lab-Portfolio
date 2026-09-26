@@ -177,7 +177,7 @@ flowchart LR
 ---
 
 <a id="module-1"></a>
-## Module 🏗️ 1 — Build the Topology
+## 🏗️ Module 1 — Build the Topology
 
 **Objective:** Wire 3 routers, 3 switches and 3 PCs exactly per the Environment tables.
 
@@ -193,7 +193,7 @@ No CLI commands in this step — physical/logical wiring done in the Packet Trac
 ---
 
 <a id="module-2"></a>
-## Module 🌐 2 — IP Addressing on All Routers
+## 🌐 Module 2 — IP Addressing on All Routers
 
 **Objective:** Address every LAN and WAN interface on R1, R2 and R3, and confirm each shows up/up.
 
@@ -251,7 +251,7 @@ R3(config-if)# no shutdown
 ---
 
 <a id="module-3"></a>
-## Module 🛣️ 3 — Static Routing
+## 🛣️ Module 3 — Static Routing
 
 **Objective:** Manually route all three LANs to each other and confirm end-to-end reachability.
 
@@ -288,7 +288,7 @@ PC1> ping 192.168.3.10
 ---
 
 <a id="module-4"></a>
-## Module 🔁 4 — RIP v2 Migration
+## 🔁 Module 4 — RIP v2 Migration
 
 **Objective:** Remove the static routes and replace them with RIP v2 across all three routers.
 
@@ -341,7 +341,7 @@ PC1> ping 192.168.3.10
 ---
 
 <a id="module-5"></a>
-## Module 🔗 5 — OSPF Migration
+## 🔗 Module 5 — OSPF Migration
 
 **Objective:** Remove RIP and replace it with single-area OSPF, verifying full neighbor adjacency.
 
@@ -390,7 +390,7 @@ PC1> ping 192.168.3.10
 ---
 
 <a id="module-6"></a>
-## Module 🧬 6 — EIGRP Migration
+## 🧬 Module 6 — EIGRP Migration
 
 **Objective:** Remove OSPF and replace it with EIGRP AS 100, verifying full neighbor adjacency.
 
