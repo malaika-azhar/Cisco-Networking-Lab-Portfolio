@@ -3,7 +3,6 @@
 # 🌐 Networking Labs — VLANs, Inter-VLAN Routing & DHCP
 **Lab 02**
 
-
 **1 Lab · Switching → Routing → Network Services · Cisco Packet Tracer**
 
 A hands-on networking lab that builds three VLANs, routes between them with Router-on-a-Stick, and gives every client an address automatically from the gateway router — from the topology, to the configuration, to the proof that it works.
@@ -50,9 +49,13 @@ One method: design the plan, configure one layer at a time, test each step, and 
 <a id="at-a-glance"></a>
 ## 📊 At a Glance
 
+<div align="center">
+
 | 📄 Labs | 🧩 VLANs | 🖧 Devices | 📸 Screenshots | 🧱 Steps |
 |:---:|:---:|:---:|:---:|:---:|
 | **1** | **3** | **5** | **8** | **8** |
+
+</div>
 
 ---
 
@@ -61,9 +64,11 @@ One method: design the plan, configure one layer at a time, test each step, and 
 
 This folder holds the **DHCP Multi-VLAN Deployment** lab (Domain: Networking · Difficulty: Intermediate). The lab has three departments (IT, HR and Sales) on one switch, each in its own VLAN and subnet. One router acts as the gateway for all three and also serves DHCP.
 
-- **Switching:** Three VLANs, access ports for the PCs and one 802.1Q trunk to the router.
-- **Routing:** Router-on-a-Stick with one sub-interface per VLAN.
-- **Network services:** One DHCP pool per VLAN, served directly from the router.
+| Layer | What Happens |
+|---|---|
+| 🟣 **Switching** | Three VLANs, access ports for the PCs, one 802.1Q trunk to the router |
+| 🔵 **Routing** | Router-on-a-Stick with one sub-interface per VLAN |
+| 🟢 **Network Services** | One DHCP pool per VLAN, served directly from the router |
 
 > [!NOTE]
 > This is a simulated lab built in Cisco Packet Tracer. Screenshots are in the `screenshots/` folder and the working file is `Lab4_DHCP_Multi_VLAN.pkt`.
@@ -76,7 +81,7 @@ This folder holds the **DHCP Multi-VLAN Deployment** lab (Domain: Networking · 
 <tr>
 <td align="center" valign="top" width="18%">
 
-**🗺 Design**<br>
+**🗺️ Design**<br>
 <sub>VLANs, subnets<br>and gateways</sub>
 
 </td>
@@ -146,11 +151,11 @@ This folder holds the **DHCP Multi-VLAN Deployment** lab (Domain: Networking · 
 
 | Tool | Purpose |
 |------|---------|
-| Cisco Packet Tracer | Network simulation |
-| Router 2911 (Router1) | Router-on-a-Stick gateway + DHCP server |
-| Switch 2960 (Switch1) | VLAN segmentation, access + trunk ports |
-| 802.1Q Trunking | Carries all 3 VLANs over a single uplink |
-| DHCP | Per-VLAN address pools served from the router |
+| 🖥️ Cisco Packet Tracer | Network simulation |
+| 🚪 Router 2911 (Router1) | Router-on-a-Stick gateway + DHCP server |
+| 🔀 Switch 2960 (Switch1) | VLAN segmentation, access + trunk ports |
+| 🔗 802.1Q Trunking | Carries all 3 VLANs over a single uplink |
+| 📖 DHCP | Per-VLAN address pools served from the router |
 
 ---
 
@@ -180,6 +185,7 @@ flowchart LR
     class B rt
     class C,D,E sv
 ```
+<p align="center"><em>Three phases, one direction: segment the switch, hand off to the router, then prove the services work.</em></p>
 
 ---
 
@@ -188,9 +194,9 @@ flowchart LR
 
 | Department | VLAN | Subnet | Router Sub-Interface | Gateway IP | Client | Expected DHCP IP |
 |---|:---:|---|---|---|---|---|
-| IT | 10 | 192.168.10.0/24 | Gi0/0.10 | 192.168.10.1 | PC-IT | 192.168.10.10 |
-| HR | 20 | 192.168.20.0/24 | Gi0/0.20 | 192.168.20.1 | PC-HR | 192.168.20.10 |
-| Sales | 30 | 192.168.30.0/24 | Gi0/0.30 | 192.168.30.1 | PC-Sales | 192.168.30.10 |
+| 🟣 IT | 10 | 192.168.10.0/24 | Gi0/0.10 | 192.168.10.1 | PC-IT | 192.168.10.10 |
+| 🔵 HR | 20 | 192.168.20.0/24 | Gi0/0.20 | 192.168.20.1 | PC-HR | 192.168.20.10 |
+| 🟢 Sales | 30 | 192.168.30.0/24 | Gi0/0.30 | 192.168.30.1 | PC-Sales | 192.168.30.10 |
 
 **Excluded range:** `.1`–`.9` in every subnet, reserved for gateways and static infrastructure and kept out of the DHCP lease pool.
 
@@ -199,7 +205,9 @@ flowchart LR
 <a id="topology"></a>
 ## 🖧 Topology & Connections
 
-**Devices:** Router1 (2911), Switch1 (2960), PC-IT, PC-HR, PC-Sales.
+![Router](https://img.shields.io/badge/Router1-Cisco_2911-76448A?style=flat-square&logo=cisco&logoColor=white)
+![Switch](https://img.shields.io/badge/Switch1-Cisco_2960-1A5276?style=flat-square&logo=cisco&logoColor=white)
+![PC](https://img.shields.io/badge/PC--IT_·_PC--HR_·_PC--Sales-B9770E?style=flat-square)
 
 | From | To | Port |
 |------|----|------|
@@ -208,7 +216,9 @@ flowchart LR
 | PC-Sales | Switch1 | Fa0/3 |
 | Switch1 (trunk) | Router1 | Fa0/24 ↔ Gig0/0 |
 
-![Topology](./screenshots/01-topology.PNG)
+<p align="center">
+  <img src="./screenshots/01-topology.PNG" alt="Topology" width="850">
+</p>
 
 ---
 
@@ -226,9 +236,11 @@ flowchart LR
     classDef e fill:#2C3E70,stroke:#131B3A,stroke-width:3px,color:#FFFFFF,font-weight:bold
 ```
 
-- **Access port** puts the PC in the right VLAN.
-- **Trunk** carries all three VLANs to the router.
-- **Sub-interface** is the gateway for each VLAN. The DHCP pool `network` statement must match its subnet.
+| Hop | What Has to Be Right |
+|---|---|
+| **Access port** | Puts the PC in the right VLAN |
+| **Trunk** | Carries all three VLANs to the router |
+| **Sub-interface** | Is the gateway for each VLAN — the DHCP pool's `network` statement must match its subnet |
 
 ---
 
@@ -237,7 +249,7 @@ flowchart LR
 
 | 🛡️ Domain | 📌 Where It Appears | ✅ What Is Shown |
 |---|---|---|
-| Switching & VLANs | Steps 2 | Three named VLANs, access ports, one trunk |
+| Switching & VLANs | Step 2 | Three named VLANs, access ports, one trunk |
 | Inter-VLAN Routing | Step 3 | Router-on-a-Stick with `encapsulation dot1Q` |
 | Network Services (DHCP) | Step 4–5 | Excluded ranges, per-VLAN pools, gateway and DNS options |
 | Connectivity Testing | Step 6 | Ping from PC-IT to PC-HR across VLANs |
@@ -254,7 +266,7 @@ How the lab turns a requirement into a verified network
 ```mermaid
 flowchart TB
     Req["🎯 REQUIREMENT<br/>3 departments, automatic addressing"]:::symClass
-    Des["🗺 DESIGN<br/>VLANs, subnets, gateways"]:::isoClass
+    Des["🗺️ DESIGN<br/>VLANs, subnets, gateways"]:::isoClass
     Cfg["⚙️ CONFIGURE<br/>Switch · sub-interfaces · DHCP"]:::decClass
     Tst["🔎 TEST<br/>Client leases and ping"]:::fixClass
     Ver["✅ VERIFY<br/>Bindings and interface status"]:::verClass
@@ -289,9 +301,11 @@ A configuration is not done until it has been tested.
 | Inter-VLAN connectivity | `ping 192.168.20.10` from PC-IT: first attempt 3 of 4 replies (first packet timed out for ARP), second attempt 4 of 4 |
 | Config saved | `copy running-config startup-config` returns `[OK]` |
 
-![DHCP Client Success](./screenshots/05-dhcp-client-success.PNG)
-![Inter-VLAN Ping Test](./screenshots/06-inter-vlan-ping-test.PNG)
-![R1 DHCP Verification](./screenshots/07-r1-dhcp-verification.PNG)
+<p align="center">
+  <img src="./screenshots/05-dhcp-client-success.PNG" alt="DHCP Client Success" width="850"><br>
+  <img src="./screenshots/06-inter-vlan-ping-test.PNG" alt="Inter-VLAN Ping Test" width="850"><br>
+  <img src="./screenshots/07-r1-dhcp-verification.PNG" alt="R1 DHCP Verification" width="850">
+</p>
 
 ---
 
