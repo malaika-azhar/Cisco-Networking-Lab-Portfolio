@@ -375,12 +375,19 @@ ping 192.168.3.10
 ### 🗺️ Adjacency Chain
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 24, 'rankSpacing': 34, 'padding': 8}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 40, 'rankSpacing': 60, 'padding': 10}}}%%
 flowchart LR
-    A["🚪 HQ-R1<br/>1.1.1.1"] -->|"✅ FULL"| B["🚪 BR1-R2<br/>2.2.2.2"]
-    B -->|"✅ FULL"| C["🚪 BR2-R3<br/>3.3.3.3"]
+    subgraph Area0["OSPF Area 0"]
+        direction LR
+        A["HQ-R1<br/>Router ID 1.1.1.1"]:::r
+        B["BR1-R2<br/>Router ID 2.2.2.2"]:::r
+        C["BR2-R3<br/>Router ID 3.3.3.3"]:::r
+        A ---|"FULL"| B
+        B ---|"FULL"| C
+    end
     classDef r fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF
-    class A,B,C r
+    style Area0 fill:#F4F6F5,stroke:#117864,stroke-width:1.5px,stroke-dasharray:4 3
+    linkStyle default stroke:#117864,stroke-width:2px
 ```
 <p align="center"><em>Two FULL adjacencies span the whole backbone — no static routes, redistribution, or default routes were needed once OSPF converged.</em></p>
 
