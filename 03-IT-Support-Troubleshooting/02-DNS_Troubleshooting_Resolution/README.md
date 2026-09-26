@@ -2,7 +2,7 @@
 
 # 🔍 DNS Troubleshooting & Resolution
 
-**IT Support & Troubleshooting Lab — Cisco Networking Lab Portfolio**
+**IT Support & Troubleshooting Lab 02 — Cisco Networking Lab Portfolio**
 
 A Real DNS Resolution Fault Diagnosed and Fixed on Physical Hardware — `ping` vs. `nslookup` Divergence, DNS Cache Flush, and Manual Public DNS Configuration (Windows 10, No VM, No Packet Tracer)
 
@@ -130,12 +130,12 @@ No topology diagram is used in this lab — everything happens on this one machi
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40, 'padding': 8}}}%%
 flowchart LR
-    S1["ping 8.8.8.8<br/>✅ Layer 3 OK"]:::ok --> S2["ping google.com<br/>✅ resolved (unexpected)"]:::ok
+    S1["ping 8.8.8.8<br/>Layer 3 OK"]:::ok --> S2["ping google.com<br/>resolved (unexpected)"]:::ok
     S2 --> S3["ipconfig /all<br/>DNS = 192.168.100.1"]:::info
-    S3 --> S4["nslookup google.com<br/>❌ Request timed out"]:::fault
+    S3 --> S4["nslookup google.com<br/>Request timed out"]:::fault
     S4 --> S5["ipconfig /flushdns"]:::fix
-    S5 --> S6["ping + nslookup retest<br/>✅ Both succeed"]:::ok
-    S6 --> S7["Manual DNS: 8.8.8.8 / 1.1.1.1<br/>(extra practice only)"]:::extra
+    S5 --> S6["ping + nslookup retest<br/>Both succeed"]:::ok
+    S6 --> S7["Manual DNS: 8.8.8.8 / 1.1.1.1<br/>extra practice only"]:::extra
     classDef ok fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF
     classDef info fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF
     classDef fault fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF
@@ -479,7 +479,7 @@ These limits are stated so the lab is read as a real, honestly-documented troubl
 ## 📁 Repo Structure
 
 ```text
-03-IT_Support_Troubleshooting/DNS_Troubleshooting_Resolution/
+03-IT-Support-Troubleshooting/02-DNS_Troubleshooting_Resolution/
 |-- README.md
 `-- screenshots/
     |-- 01-baseline-ping.PNG
