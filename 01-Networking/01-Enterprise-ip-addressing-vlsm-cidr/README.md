@@ -13,7 +13,7 @@ Right-Sizing a Single /20 Block Across 3 Buildings and 3 WAN Links (Cisco Packet
 ![Routers](https://img.shields.io/badge/Routers-3x_Cisco_2911-777BB4?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
 
-A single allocated `/20` block is carved with VLSM into three right-sized building subnets and three point-to-point WAN links, wired into a triangular 3-router topology in Packet Tracer, and routed end-to-end with OSPF (Area 0). Every stage is backed by a screenshot. One ping test gap and one masked misconfiguration are called out below rather than hidden.
+**A single allocated `/20` block is carved with VLSM into three right-sized building subnets and three point-to-point WAN links, wired into a triangular 3-router topology in Packet Tracer, and routed end-to-end with OSPF (Area 0). Every stage is backed by a screenshot. One ping test gap and one masked misconfiguration are called out below rather than hidden.**
 
 </div>
 
