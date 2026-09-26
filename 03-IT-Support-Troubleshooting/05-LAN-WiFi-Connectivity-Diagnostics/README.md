@@ -143,25 +143,37 @@ flowchart LR
 ## 🔎 Diagnostic Flow
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px'}, 'flowchart': {'nodeSpacing': 45, 'rankSpacing': 65, 'padding': 20, 'useMaxWidth': false}}}%%
-flowchart LR
-    START(["🔧 Start"]):::endpoint --> I1["📋 ipconfig /all"]:::step
-    I1 --> I2["🔎 arp -a"]:::step
-    I2 --> I3["🌐 nslookup"]:::step
-    I3 --> I4["📶 ping"]:::step
-    I4 --> I5["🧭 tracert"]:::step
-    I5 --> W1["🔁 DHCP<br/>release/renew"]:::step
-    W1 --> W2["✅ verify<br/>lease"]:::step
-    W2 --> W3["🛜 SSID +<br/>channel"]:::wifi
-    W3 --> W4["📡 channel<br/>overlap"]:::wifi
-    W4 --> W5["🗂️ saved<br/>profiles"]:::wifi
-    W5 --> DONE(["🏁 Done"]):::endpoint
-    classDef endpoint fill:#2C3E50,stroke:#16202A,stroke-width:3px,color:#FFFFFF
-    classDef step fill:#117864,stroke:#083D33,stroke-width:3px,color:#FFFFFF
-    classDef wifi fill:#76448A,stroke:#432752,stroke-width:3px,color:#FFFFFF
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '18px'}, 'flowchart': {'nodeSpacing': 50, 'rankSpacing': 70, 'padding': 16, 'useMaxWidth': false}}}%%
+flowchart TB
+    subgraph IPCHECK["Phase 1 — IP / DNS / Routing"]
+        direction LR
+        I1["ipconfig /all<br/>baseline captured"]
+        I2["arp -a<br/>gateway MAC confirmed"]
+        I3["nslookup<br/>DNS resolves"]
+        I4["ping<br/>0% packet loss"]
+        I5["tracert<br/>hop path traced"]
+        I1 --> I2 --> I3 --> I4 --> I5
+    end
+    subgraph DHCPCYCLE["Phase 2 — DHCP Cycle"]
+        direction LR
+        D1["release / renew<br/>lease requested"]
+        D2["ipconfig /all<br/>same IP retained"]
+        D1 --> D2
+    end
+    subgraph WIFI["Phase 3 — Wireless Checks"]
+        direction LR
+        W1["SSID + channel<br/>netsh wlan show interfaces"]
+        W2["channel overlap<br/>netsh wlan show networks"]
+        W3["saved profiles<br/>netsh wlan show profiles"]
+        W1 --> W2 --> W3
+    end
+    IPCHECK --> DHCPCYCLE --> WIFI
+    style IPCHECK fill:#EAF5F2,stroke:#117864,stroke-width:2px,stroke-dasharray:4 3
+    style DHCPCYCLE fill:#FBF3E4,stroke:#B9770E,stroke-width:2px,stroke-dasharray:4 3
+    style WIFI fill:#F1EBF5,stroke:#76448A,stroke-width:2px,stroke-dasharray:4 3
     linkStyle default stroke:#2C3E50,stroke-width:3px
 ```
-<p align="center"><em>One continuous path from first check to last: the IP/DNS/routing checks flow straight into the DHCP cycle and the wireless-specific checks that finish the diagnostic.</em></p>
+<p align="center"><em>Three phases run one after another on the same PC — IP/DNS/routing checks first, then the DHCP release-renew cycle, then the wireless-specific checks that finish the diagnostic.</em></p>
 
 ---
 
