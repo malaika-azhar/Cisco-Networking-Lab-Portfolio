@@ -143,28 +143,25 @@ flowchart LR
 ## 🔎 Diagnostic Flow
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '15px'}, 'flowchart': {'nodeSpacing': 22, 'rankSpacing': 32, 'padding': 8, 'curve': 'basis'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '20px'}, 'flowchart': {'nodeSpacing': 45, 'rankSpacing': 65, 'padding': 20, 'useMaxWidth': false}}}%%
 flowchart LR
     START(["🔧 Start"]):::endpoint --> I1["📋 ipconfig /all"]:::step
     I1 --> I2["🔎 arp -a"]:::step
     I2 --> I3["🌐 nslookup"]:::step
     I3 --> I4["📶 ping"]:::step
     I4 --> I5["🧭 tracert"]:::step
-    I5 --> CHK{{"Healthy?"}}:::decision
-    CHK -- "yes" --> W1["🔁 DHCP<br/>release/renew"]:::step
-    CHK -. "no" .-> I1
+    I5 --> W1["🔁 DHCP<br/>release/renew"]:::step
     W1 --> W2["✅ verify<br/>lease"]:::step
     W2 --> W3["🛜 SSID +<br/>channel"]:::wifi
     W3 --> W4["📡 channel<br/>overlap"]:::wifi
     W4 --> W5["🗂️ saved<br/>profiles"]:::wifi
     W5 --> DONE(["🏁 Done"]):::endpoint
-    classDef endpoint fill:#2C3E50,stroke:#16202A,stroke-width:2px,color:#FFFFFF
-    classDef step fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF
-    classDef wifi fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF
-    classDef decision fill:#B9770E,stroke:#6E4409,stroke-width:2px,color:#FFFFFF
-    linkStyle default stroke:#2C3E50,stroke-width:2px
+    classDef endpoint fill:#2C3E50,stroke:#16202A,stroke-width:3px,color:#FFFFFF
+    classDef step fill:#117864,stroke:#083D33,stroke-width:3px,color:#FFFFFF
+    classDef wifi fill:#76448A,stroke:#432752,stroke-width:3px,color:#FFFFFF
+    linkStyle default stroke:#2C3E50,stroke-width:3px
 ```
-<p align="center"><em>One continuous path from first check to last: the IP/DNS/routing checks feed a health decision point, then flow into the DHCP cycle and the wireless-specific checks that finish the diagnostic.</em></p>
+<p align="center"><em>One continuous path from first check to last: the IP/DNS/routing checks flow straight into the DHCP cycle and the wireless-specific checks that finish the diagnostic.</em></p>
 
 ---
 
