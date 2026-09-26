@@ -25,31 +25,35 @@ A single allocated `/20` block is carved with VLSM into three right-sized buildi
 2. [Project Background](#project-background)
 3. [Tools & Technologies](#tools-technologies)
 4. [Environment](#environment)
-6. [Topology](#topology)
-7. [Design Scenario & VLSM Math](#design-scenario)
-8. [VLSM Allocation Table](#vlsm-allocation-table)
-9. [Module 1 — Build the Topology](#module-1)
-10. [Module 2 — Router Interface Configuration](#module-2)
-11. [Module 3 — OSPF Routing](#module-3)
-12. [Module 4 — End Device Configuration](#module-4)
-13. [Module 5 — Verification & Save](#module-5)
-14. [Coverage Snapshot](#coverage-snapshot)
-15. [Command Summary](#command-summary)
-16. [Challenges & Fixes](#challenges-fixes)
-17. [Scope & Limitations](#scope-limitations)
-18. [What I Learned](#what-i-learned)
-19. [Skills Demonstrated](#skills-demonstrated)
-20. [Screenshot Index](#screenshot-index)
-21. [Repo Structure](#repo-structure)
+5. [Topology](#topology)
+6. [Design Scenario & VLSM Math](#design-scenario)
+7. [VLSM Allocation Table](#vlsm-allocation-table)
+8. [Module 1 — Build the Topology](#module-1)
+9. [Module 2 — Router Interface Configuration](#module-2)
+10. [Module 3 — OSPF Routing](#module-3)
+11. [Module 4 — End Device Configuration](#module-4)
+12. [Module 5 — Verification & Save](#module-5)
+13. [Coverage Snapshot](#coverage-snapshot)
+14. [Command Summary](#command-summary)
+15. [Challenges & Fixes](#challenges-fixes)
+16. [Scope & Limitations](#scope-limitations)
+17. [What I Learned](#what-i-learned)
+18. [Skills Demonstrated](#skills-demonstrated)
+19. [Screenshot Index](#screenshot-index)
+20. [Repo Structure](#repo-structure)
 
 ---
 
 <a id="at-a-glance"></a>
 ## 📊 At a Glance
 
+<div align="center">
+
 | 🖧 Allocated Block | 🏢 Buildings | 🔗 WAN Links | 📡 Routing | 🖼️ Screenshots | 💰 Cost |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | **172.16.0.0/20** | **3** | **3** | **OSPF Area 0** | **13** | **Free (Packet Tracer)** |
+
+</div>
 
 ---
 
@@ -58,11 +62,13 @@ A single allocated `/20` block is carved with VLSM into three right-sized buildi
 
 Enterprise IP planning starts with one allocated block and a list of buildings that need very different numbers of hosts. VLSM lets each subnet be sized to what it actually needs instead of handing every site the same block, and OSPF then stitches the sized-down pieces back into one routed network.
 
-- **Module 1 — Build the Topology:** Wire 3 routers, 3 switches and 3 PCs into a triangular campus layout.
-- **Module 2 — Router Interface Configuration:** Assign the VLSM-derived addresses to each router's LAN and WAN interfaces.
-- **Module 3 — OSPF Routing:** Advertise every subnet into Area 0 so the three buildings can reach each other.
-- **Module 4 — End Device Configuration:** Give each PC a static IP, mask and gateway matching its building's subnet.
-- **Module 5 — Verification & Save:** Ping across buildings, check the OSPF routing table, and save the configs.
+| Module | Focus |
+|---|---|
+| 🔵 **Module 1 — Build the Topology** | Wire 3 routers, 3 switches and 3 PCs into a triangular campus layout |
+| 🟢 **Module 2 — Router Interface Configuration** | Assign the VLSM-derived addresses to each router's LAN and WAN interfaces |
+| 🟣 **Module 3 — OSPF Routing** | Advertise every subnet into Area 0 so the three buildings can reach each other |
+| 🟠 **Module 4 — End Device Configuration** | Give each PC a static IP, mask and gateway matching its building's subnet |
+| 🔴 **Module 5 — Verification & Save** | Ping across buildings, check the OSPF routing table, and save the configs |
 
 > [!NOTE]
 > This is a Packet Tracer simulation, not physical hardware. Command output referenced in a step is what the corresponding screenshot shows; anything not shown in a screenshot is marked 📝.
@@ -74,16 +80,20 @@ Enterprise IP planning starts with one allocated block and a list of buildings t
 
 | Tool | Purpose |
 |------|---------|
-| Cisco Packet Tracer | Network simulation |
-| Router 2911 x3 | HQ-R1, HQ-R2, HQ-R3 — one per building, interconnected via WAN links |
-| Switch 2960 x3 | Building-level switching |
-| VLSM | Right-sizing each subnet to actual host need, no waste |
-| OSPF (Area 0) | Dynamic routing between buildings and WAN links |
+| 🖥️ Cisco Packet Tracer | Network simulation |
+| 🚪 Router 2911 x3 | HQ-R1, HQ-R2, HQ-R3 — one per building, interconnected via WAN links |
+| 🔀 Switch 2960 x3 | Building-level switching |
+| 📐 VLSM | Right-sizing each subnet to actual host need, no waste |
+| 📡 OSPF (Area 0) | Dynamic routing between buildings and WAN links |
 
 ---
 
 <a id="environment"></a>
 ## 🖧 Environment
+
+![Router](https://img.shields.io/badge/HQ--R1_·_HQ--R2_·_HQ--R3-Cisco_2911-76448A?style=flat-square&logo=cisco&logoColor=white)
+![Switch](https://img.shields.io/badge/3x_Switches-Cisco_2960-1A5276?style=flat-square&logo=cisco&logoColor=white)
+![PC](https://img.shields.io/badge/PC--A_·_PC--B_·_PC--C-B9770E?style=flat-square)
 
 | Item | Value |
 |---|---|
@@ -127,10 +137,10 @@ Allocated block: **172.16.0.0/20** (4,096 total addresses)
 
 | Building/Link | Hosts Needed | Scaled To | Prefix |
 |---|---|---|---|
-| Building A — Core Operations | 1,000 | 1,024 (2¹⁰) | /22 |
-| Building B — Engineering & Dev | 500 | 512 (2⁹) | /23 |
-| Building C — Sales & Admin | 250 | 256 (2⁸) | /24 |
-| WAN Links (×3) | 2 each | 4 each (2²) | /30 |
+| 🟠 Building A — Core Operations | 1,000 | 1,024 (2¹⁰) | /22 |
+| 🟢 Building B — Engineering & Dev | 500 | 512 (2⁹) | /23 |
+| 🟣 Building C — Sales & Admin | 250 | 256 (2⁸) | /24 |
+| 🔗 WAN Links (×3) | 2 each | 4 each (2²) | /30 |
 
 Each site is rounded up to the next power of two so the mask lines up on a clean boundary, then the blocks are packed largest-first with no gaps between them — the standard VLSM allocation order.
 
@@ -141,12 +151,12 @@ Each site is rounded up to the next power of two so the mask lines up on a clean
 
 | Network | Subnet | Mask | Usable Range |
 |---|---|---|---|
-| Building A | 172.16.0.0/22 | 255.255.252.0 | 172.16.0.1 – 172.16.3.254 |
-| Building B | 172.16.4.0/23 | 255.255.254.0 | 172.16.4.1 – 172.16.5.254 |
-| Building C | 172.16.6.0/24 | 255.255.255.0 | 172.16.6.1 – 172.16.6.254 |
-| WAN Link 1 (R1–R2) | 172.16.7.96/30 | 255.255.255.252 | 172.16.7.97 – 172.16.7.98 |
-| WAN Link 2 (R2–R3) | 172.16.7.100/30 | 255.255.255.252 | 172.16.7.101 – 172.16.7.102 |
-| WAN Link 3 (R3–R1) | 172.16.7.104/30 | 255.255.255.252 | 172.16.7.105 – 172.16.7.106 |
+| 🟠 Building A | 172.16.0.0/22 | 255.255.252.0 | 172.16.0.1 – 172.16.3.254 |
+| 🟢 Building B | 172.16.4.0/23 | 255.255.254.0 | 172.16.4.1 – 172.16.5.254 |
+| 🟣 Building C | 172.16.6.0/24 | 255.255.255.0 | 172.16.6.1 – 172.16.6.254 |
+| 🔗 WAN Link 1 (R1–R2) | 172.16.7.96/30 | 255.255.255.252 | 172.16.7.97 – 172.16.7.98 |
+| 🔗 WAN Link 2 (R2–R3) | 172.16.7.100/30 | 255.255.255.252 | 172.16.7.101 – 172.16.7.102 |
+| 🔗 WAN Link 3 (R3–R1) | 172.16.7.104/30 | 255.255.255.252 | 172.16.7.105 – 172.16.7.106 |
 
 > **Gap in the design:** Buildings A/B/C are packed contiguously with zero gaps (172.16.0.0 → 172.16.6.255). `172.16.7.0` – `172.16.7.95` sits unused before the WAN links start — reclaimable space in a tighter design.
 
