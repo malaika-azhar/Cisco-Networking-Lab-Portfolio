@@ -2,7 +2,7 @@
 
 # 🗂️ Active Directory & User Account Issues
 
-**IT Support & Troubleshooting Lab — Cisco Networking Lab Portfolio**
+**IT Support & Troubleshooting Lab 01 — Cisco Networking Lab Portfolio**
 
 Provisioning a Samba4 Active Directory Domain Controller on Ubuntu Server 22.04 — Static Network Configuration, Service-Conflict Troubleshooting, User Account Creation, and a Full Disable/Enable Lockout-Recovery Cycle (VMware Workstation)
 
@@ -788,7 +788,7 @@ These limits are stated so the lab is read as an AD-fundamentals-and-troubleshoo
 ## 📁 Repo Structure
 
 ```text
-03-IT_Support_Troubleshooting/Active_Directory_User_Account_Issues/
+03-IT-Support-Troubleshooting/01-Active_Directory_User_Account_Issues/
 |-- README.md
 `-- screenshots/
     |-- 01-ubuntu-update.PNG
