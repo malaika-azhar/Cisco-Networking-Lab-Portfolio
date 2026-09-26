@@ -25,26 +25,27 @@ This lab was run live on a physical HP 255 G5 laptop, not a simulator or VM — 
 2. [Project Background](#project-background)
 3. [Tools & Technologies](#tools-technologies)
 4. [Environment](#environment)
-5. [Diagnostic Flow](#diagnostic-flow)
-6. [Issues Identified](#issues-identified)
-7. [Module 1 — Confirm Baseline Connectivity](#module-1)
-8. [Module 2 — Test Domain Resolution](#module-2)
-9. [Module 3 — Check Current DNS Configuration](#module-3)
-10. [Module 4 — Query DNS Directly with nslookup](#module-4)
-11. [Module 5 — Flush DNS Cache](#module-5)
-12. [Module 6 — Re-test After Flush](#module-6)
-13. [Module 7 — Manually Set a Public DNS Server](#module-7)
-14. [Module 8 — Verify Resolution with New DNS](#module-8)
-15. [Module 9 — Reverse DNS Lookup](#module-9)
-16. [Module 10 — Document Resolution Response Time](#module-10)
-17. [Coverage Snapshot](#coverage-snapshot)
-18. [Command Summary](#command-summary)
-19. [Challenges & Fixes](#challenges-fixes)
-20. [Scope & Limitations](#scope-limitations)
-21. [What I Learned](#what-i-learned)
-22. [Skills Demonstrated](#skills-demonstrated)
-23. [Screenshot Index](#screenshot-index)
-24. [Repo Structure](#repo-structure)
+5. [Local DNS Path](#local-dns-path)
+6. [Diagnostic Flow](#diagnostic-flow)
+7. [Issues Identified](#issues-identified)
+8. [Module 1 — Confirm Baseline Connectivity](#module-1)
+9. [Module 2 — Test Domain Resolution](#module-2)
+10. [Module 3 — Check Current DNS Configuration](#module-3)
+11. [Module 4 — Query DNS Directly with nslookup](#module-4)
+12. [Module 5 — Flush DNS Cache](#module-5)
+13. [Module 6 — Re-test After Flush](#module-6)
+14. [Module 7 — Manually Set a Public DNS Server](#module-7)
+15. [Module 8 — Verify Resolution with New DNS](#module-8)
+16. [Module 9 — Reverse DNS Lookup](#module-9)
+17. [Module 10 — Document Resolution Response Time](#module-10)
+18. [Coverage Snapshot](#coverage-snapshot)
+19. [Command Summary](#command-summary)
+20. [Challenges & Fixes](#challenges-fixes)
+21. [Scope & Limitations](#scope-limitations)
+22. [What I Learned](#what-i-learned)
+23. [Skills Demonstrated](#skills-demonstrated)
+24. [Screenshot Index](#screenshot-index)
+25. [Repo Structure](#repo-structure)
 
 ---
 
@@ -120,7 +121,29 @@ This lab set out to stage a DNS failure and walk through fixing it, but the real
 | IPv4 Address | 192.168.100.50 | 192.168.100.50 (unchanged) |
 | Resolver Cache | Stale (caused the fault) | Flushed and rebuilt |
 
-No topology diagram is used in this lab — everything happens on this one machine's local network stack, not across multiple devices.
+This lab runs entirely on one machine's local network stack rather than across multiple devices, so the diagram below shows that stack — laptop, router-as-DNS-relay, and the optional public DNS override — instead of a multi-device topology.
+
+---
+
+<a id="local-dns-path"></a>
+## 🗺️ Local DNS Path
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40, 'padding': 8}}}%%
+flowchart LR
+    PC["💻 HP 255 G5<br/>Windows 10 Pro"]:::pc --> CACHE["🗃️ Local Resolver Cache<br/>went stale"]:::fault
+    CACHE --> RTR["📶 Home Router<br/>192.168.100.1 · DNS relay"]:::gw
+    RTR --> WAN["🌐 ISP / Internet"]:::wan
+    PC -.->|"manual override"| PUB["🌍 Public DNS<br/>8.8.8.8 · 1.1.1.1"]:::pub
+    PUB --> WAN
+    classDef pc fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF
+    classDef fault fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF
+    classDef gw fill:#B9770E,stroke:#6E4409,stroke-width:2px,color:#FFFFFF
+    classDef wan fill:#5D6D7E,stroke:#2C3844,stroke-width:2px,color:#FFFFFF
+    classDef pub fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF
+    linkStyle default stroke:#2C3E50,stroke-width:2px
+```
+<p align="center"><em>One machine, two DNS paths — the default path through the router's relay (where the stale cache caused the fault) and the manual override to public DNS added afterward as extra practice.</em></p>
 
 ---
 
@@ -130,20 +153,32 @@ No topology diagram is used in this lab — everything happens on this one machi
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 30, 'rankSpacing': 40, 'padding': 8}}}%%
 flowchart LR
-    S1["ping 8.8.8.8<br/>Layer 3 OK"]:::ok --> S2["ping google.com<br/>resolved (unexpected)"]:::ok
-    S2 --> S3["ipconfig /all<br/>DNS = 192.168.100.1"]:::info
-    S3 --> S4["nslookup google.com<br/>Request timed out"]:::fault
-    S4 --> S5["ipconfig /flushdns"]:::fix
-    S5 --> S6["ping + nslookup retest<br/>Both succeed"]:::ok
-    S6 --> S7["Manual DNS: 8.8.8.8 / 1.1.1.1<br/>extra practice only"]:::extra
+    subgraph Discover["Discover the Fault"]
+        direction LR
+        S1["ping 8.8.8.8<br/>Layer 3 OK"]:::ok
+        S2["ping google.com<br/>resolved (unexpected)"]:::ok
+        S3["ipconfig /all<br/>DNS = 192.168.100.1"]:::info
+        S4["nslookup google.com<br/>Request timed out"]:::fault
+        S1 --> S2 --> S3 --> S4
+    end
+    subgraph Resolve["Fix, Verify & Extend"]
+        direction LR
+        S5["ipconfig /flushdns"]:::fix
+        S6["ping + nslookup retest<br/>Both succeed"]:::ok
+        S7["Manual DNS 8.8.8.8 / 1.1.1.1<br/>extra practice only"]:::extra
+        S5 --> S6 --> S7
+    end
+    Discover --> Resolve
     classDef ok fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF
     classDef info fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF
     classDef fault fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF
     classDef fix fill:#76448A,stroke:#432752,stroke-width:2px,color:#FFFFFF
     classDef extra fill:#B9770E,stroke:#6E4409,stroke-width:2px,color:#FFFFFF
+    style Discover fill:#FBEEEA,stroke:#943126,stroke-width:1.5px,stroke-dasharray:4 3
+    style Resolve fill:#EAF5F2,stroke:#117864,stroke-width:1.5px,stroke-dasharray:4 3
     linkStyle default stroke:#2C3E50,stroke-width:2px
 ```
-<p align="center"><em>The fault only appears at the nslookup step — ping alone couldn't have caught it, since ping was quietly succeeding off cached resolver data the whole time.</em></p>
+<p align="center"><em>Split into two balanced rows: the fault is discovered in the first four steps, then fixed, verified, and extended in the next three — the nslookup step is where ping alone couldn't have caught the problem.</em></p>
 
 ---
 
