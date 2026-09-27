@@ -81,25 +81,16 @@ flowchart LR
 How a lab goes from a blank topology to a documented, proven result
 
 ```mermaid
-flowchart TB
-    Des["🎯 DESIGN"]:::designClass
-    Cfg["⚙️ CONFIGURE"]:::cfgClass
-    Brk["🐛 BREAK / TEST"]:::brkClass
-    Dia["🔎 DIAGNOSE"]:::diaClass
-    Fix["🩹 FIX"]:::fixClass
-    Ver["✅ VERIFY"]:::verClass
-    Doc["📝 DOCUMENT"]:::docClass
-
-    Des --> Cfg --> Brk --> Dia --> Fix --> Ver --> Doc
-
-    classDef designClass fill:#2C3E70,stroke:#131B3A,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    classDef cfgClass fill:#1A5276,stroke:#0B2E43,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    classDef brkClass fill:#943126,stroke:#571C16,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    classDef diaClass fill:#B9770E,stroke:#6E4409,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    classDef fixClass fill:#76448A,stroke:#432752,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    classDef verClass fill:#1E8449,stroke:#0E4A28,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    classDef docClass fill:#148F77,stroke:#0B5142,stroke-width:4px,color:#FFFFFF,font-weight:bold
-    linkStyle default stroke:#2C3E50,stroke-width:3px
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '15px'}}}%%
+timeline
+    title The Method — One Loop, Every Lab
+    Design : Plan the topology or fault scenario
+    Configure : Build it one layer at a time
+    Break / Test : Stage a realistic fault
+    Diagnose : Isolate the root cause
+    Fix : Apply the correction
+    Verify : Prove it with command output
+    Document : Screenshots and lessons learned
 ```
 <p align="center"><em>Every lab in this portfolio follows this same loop, so the evidence trail is consistent no matter the topic.</em></p>
 
