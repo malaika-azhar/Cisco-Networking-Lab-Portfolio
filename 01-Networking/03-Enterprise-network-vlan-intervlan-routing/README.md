@@ -2,7 +2,7 @@
 
 # 🏢 Enterprise Network VLAN & Inter-VLAN Routing
 
-**Lab 03 — Cisco Networking Lab Portfolio**
+**Lab 10 — Cisco Networking Lab Portfolio**
 
 Two-Switch Enterprise Network: VLANs, VTP, InterVLAN Routing, DHCP, SSH, Port Security & ACLs (Cisco Packet Tracer)
 
@@ -15,6 +15,9 @@ Two-Switch Enterprise Network: VLANs, VTP, InterVLAN Routing, DHCP, SSH, Port Se
 ![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=for-the-badge)
 
 A two-switch enterprise network with three VLANs synchronized over VTP, InterVLAN routing through router subinterfaces, per-VLAN DHCP, a dedicated Management VLAN reachable over SSH, hardened switch ports, and an ACL that blocks one direction of inter-VLAN traffic while leaving the other open. Every stage is backed by a screenshot, and the ACL test shows both the block and the traffic it deliberately leaves open.
+
+> [!NOTE]
+> This project builds directly on Project 02's topology (Cisco Infrastructure & Secure Routing), adding VLAN segmentation, VTP synchronization, and further security hardening on top of it.
 
 </div>
 
@@ -29,22 +32,23 @@ A two-switch enterprise network with three VLANs synchronized over VTP, InterVLA
 5. [Topology](#topology)
 6. [VLAN Design](#vlan-design)
 7. [PC IP Configuration](#pc-ip-configuration)
-8. [Module 1 — Build the Topology](#module-1)
-9. [Module 2 — VTP Configuration](#module-2)
-10. [Module 3 — VLAN Ports & Trunks](#module-3)
-11. [Module 4 — Port Hardening & Security](#module-4)
-12. [Module 5 — Management VLAN & SSH](#module-5)
-13. [Module 6 — InterVLAN Routing & DHCP](#module-6)
-14. [Module 7 — ACL Configuration & Testing](#module-7)
-15. [Module 8 — Final Verification & Save](#module-8)
-16. [Coverage Snapshot](#coverage-snapshot)
-17. [Command Summary](#command-summary)
-18. [Challenges & Fixes](#challenges-fixes)
-19. [Scope & Limitations](#scope-limitations)
-20. [What I Learned](#what-i-learned)
-21. [Skills Demonstrated](#skills-demonstrated)
-22. [Screenshot Index](#screenshot-index)
-23. [Repo Structure](#repo-structure)
+8. [Build Timeline](#build-timeline)
+9. [Module 1 — Build the Topology](#module-1)
+10. [Module 2 — VTP Configuration](#module-2)
+11. [Module 3 — VLAN Ports & Trunks](#module-3)
+12. [Module 4 — Port Hardening & Security](#module-4)
+13. [Module 5 — Management VLAN & SSH](#module-5)
+14. [Module 6 — InterVLAN Routing & DHCP](#module-6)
+15. [Module 7 — ACL Configuration & Testing](#module-7)
+16. [Module 8 — Final Verification & Save](#module-8)
+17. [Coverage Snapshot](#coverage-snapshot)
+18. [Command Summary](#command-summary)
+19. [Challenges & Fixes](#challenges-fixes)
+20. [Scope & Limitations](#scope-limitations)
+21. [What I Learned](#what-i-learned)
+22. [Skills Demonstrated](#skills-demonstrated)
+23. [Screenshot Index](#screenshot-index)
+24. [Repo Structure](#repo-structure)
 
 ---
 
@@ -178,6 +182,23 @@ flowchart TB
 | PC2 | 10 | DHCP | auto | auto |
 | PC3 | 20 | DHCP | auto | auto |
 | Admin PC | 99 | 192.168.99.10 | 255.255.255.0 | 192.168.99.1 |
+
+---
+
+<a id="build-timeline"></a>
+## 🔎 Build Timeline
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '15px'}, 'timeline': {'disableMulticolor': false}}}%%
+timeline
+    title Topology to Verified & Saved — eight modules, one enterprise network
+    Stage 1 — Build : Topology wired : VTP server/client configured
+    Stage 2 — VLANs & Trunks : Access ports assigned : Trunks carrying 10/20/99
+    Stage 3 — Hardening : Unused ports shut : Port security, PortFast, BPDU Guard
+    Stage 4 — Routing & Access : Subinterfaces + DHCP live : Management VLAN + SSH v2
+    Stage 5 — ACL & Verify : VLAN 20 → 10 blocked, 10 → 20 open : Config saved
+```
+<p align="center"><em>A Mermaid timeline instead of a flowchart — five stages read left to right, from the first cable to the saved, verified configuration.</em></p>
 
 ---
 
@@ -738,7 +759,7 @@ These limits are stated so the lab is read as a demonstration of the concepts, n
 ## 📁 Repo Structure
 
 ```text
-03-Enterprise-network-vlan-intervlan-routing/
+10-Enterprise-network-vlan-intervlan-routing/
 |-- README.md
 |-- enterprise-network-vlan-intervlan-routing.pkt
 `-- screenshots/
