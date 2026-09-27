@@ -2,7 +2,7 @@
 
 # 🏢 Enterprise Network VLAN & Inter-VLAN Routing
 
-**Lab 10 — Cisco Networking Lab Portfolio**
+**Lab 3 — Cisco Networking Lab Portfolio**
 
 Two-Switch Enterprise Network: VLANs, VTP, InterVLAN Routing, DHCP, SSH, Port Security & ACLs (Cisco Packet Tracer)
 
