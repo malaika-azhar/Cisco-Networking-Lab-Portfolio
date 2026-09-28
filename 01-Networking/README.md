@@ -1,22 +1,21 @@
 <div align="center">
 
-# 🌐 Networking Labs — Switching, Addressing, Routing & Network Services
+# 🔐 Network Security Labs — Access Control, Hardening, Authentication & Secure Connectivity
 
-**11 Labs · VLANs → Addressing → Routing → Services & Redundancy · Cisco Packet Tracer**
+**6 Labs · ACLs → Device Hardening → AAA → IPsec VPN · Cisco Packet Tracer**
 
-Eleven hands-on Cisco networking labs, each documenting the topology, the configuration, the tests and the result — from the first design decision to the final verification.
+Six hands-on Cisco network security labs, each documenting the topology, the configuration, the tests and the result — from the first design decision to the final verification.
 
-![Switching](https://img.shields.io/badge/Switching-VLANs_%26_Inter--VLAN-6f42c1?style=for-the-badge)
-![Addressing](https://img.shields.io/badge/Addressing-VLSM_%26_CIDR-005EB8?style=for-the-badge)
-![Routing](https://img.shields.io/badge/Routing-Static_RIP_EIGRP_OSPF-117864?style=for-the-badge)
-![Redundancy](https://img.shields.io/badge/Redundancy-HSRP-C8102E?style=for-the-badge)
-![Services](https://img.shields.io/badge/Services-DHCP_NAT_PAT_Syslog-E95420?style=for-the-badge)
+![Access Control](https://img.shields.io/badge/Access_Control-Standard_%26_Extended_ACLs-943126?style=for-the-badge)
+![Hardening](https://img.shields.io/badge/Hardening-SSH_Port_Security_STP-6f42c1?style=for-the-badge)
+![Authentication](https://img.shields.io/badge/Authentication-AAA_Local-005EB8?style=for-the-badge)
+![VPN](https://img.shields.io/badge/VPN-IPsec_Site--to--Site-117864?style=for-the-badge)
 ![Cisco](https://img.shields.io/badge/Cisco-Routers_%26_Switches-1BA0D7?style=for-the-badge&logo=cisco&logoColor=white)
 ![Tool](https://img.shields.io/badge/Tool-Packet_Tracer-B9770E?style=for-the-badge)
 ![Cost](https://img.shields.io/badge/Cost-Free_Simulator-2ea44f?style=for-the-badge)
-![Status](https://img.shields.io/badge/Labs-11_of_11-brightgreen?style=for-the-badge)
+![Status](https://img.shields.io/badge/Labs-6_of_6-brightgreen?style=for-the-badge)
 
-Every lab follows one method: design the plan, configure one layer at a time, test each step, and keep the evidence.
+Every lab follows one method: design the plan, configure one control at a time, test that it blocks what it should and allows what it should, and keep the evidence.
 
 ### [📂 Jump to the labs](#labs-index)
 
@@ -31,12 +30,12 @@ Every lab follows one method: design the plan, configure one layer at a time, te
 3. [Tools & Technologies](#tools)
 4. [The Lab Flow](#flow)
 5. [Which Lab Do I Need?](#which-lab)
-6. [Addressing (1 lab)](#addressing)
-7. [Switching & VLANs (3 labs)](#switching)
-8. [Routing (4 labs)](#routing)
-9. [Services & Redundancy (3 labs)](#services)
+6. [Access Control (2 labs)](#access-control)
+7. [Device Hardening (2 labs)](#hardening)
+8. [Authentication (1 lab)](#authentication)
+9. [Secure Connectivity (1 lab)](#connectivity)
 10. [Coverage Snapshot](#coverage-snapshot)
-11. [Network Method Pipeline](#pipeline)
+11. [Security Method Pipeline](#pipeline)
 12. [Verification, Not Assumption](#verification)
 13. [Command & Setting Cheat Sheet](#cheat-sheet)
 14. [Challenges & Fixes at a Glance](#problems-fixes)
@@ -53,22 +52,22 @@ Every lab follows one method: design the plan, configure one layer at a time, te
 
 | 📄 Labs | 🧩 Topic Groups | 🛠 Main Tool | 📁 Each Lab Has |
 |:---:|:---:|:---:|:---:|
-| **11** | **4** | **Cisco Packet Tracer** | **README · .pkt file · screenshots** |
+| **6** | **4** | **Cisco Packet Tracer** | **README · screenshots** |
 
 ---
 
 <a id="about"></a>
 ## 📖 About This Folder
 
-This folder holds eleven networking labs. Each lab lives in its own folder with a README that documents the objective, tools, topology, step-by-step configuration, screenshots, commands used, challenges and lessons learned.
+This folder holds six network security labs. Each lab lives in its own folder with a README that documents the objective, tools, topology, step-by-step configuration, screenshots, commands used, challenges and lessons learned.
 
-- **Addressing:** Splitting one address block into right-sized subnets with VLSM and CIDR.
-- **Switching & VLANs:** VLAN segmentation, inter-VLAN routing, DHCP per VLAN, and troubleshooting a VLAN network.
-- **Routing:** Static, RIP, EIGRP and OSPF, single-area and multi-area OSPF, and redistribution between protocols.
-- **Services & Redundancy:** NAT and PAT, HSRP gateway failover, and multi-site syslog logging.
+- **Access Control:** Standard and extended ACLs that permit or deny traffic by source, protocol and port.
+- **Device Hardening:** Replacing Telnet with SSH, and protecting switch ports with port security, BPDU guard and PortFast.
+- **Authentication:** Local AAA with usernames, passwords and privilege levels.
+- **Secure Connectivity:** A site-to-site IPsec VPN with IKE phase 1 and 2, transform sets and crypto maps.
 
 > [!NOTE]
-> These are simulated labs built in Cisco Packet Tracer. Screenshots and the working `.pkt` file are inside each lab folder.
+> These are simulated labs built in Cisco Packet Tracer. Screenshots are inside each lab folder.
 
 <div align="center">
 
@@ -79,7 +78,7 @@ This folder holds eleven networking labs. Each lab lives in its own folder with 
 <td align="center" valign="top" width="18%">
 
 **🗺 Design**<br>
-<sub>Topology and<br>addressing plan</sub>
+<sub>Topology and<br>security goal</sub>
 
 </td>
 <td align="center" valign="middle" width="5%">
@@ -90,7 +89,7 @@ This folder holds eleven networking labs. Each lab lives in its own folder with 
 <td align="center" valign="top" width="20%">
 
 **⚙️ Configure**<br>
-<sub>One change<br>at a time</sub>
+<sub>One control<br>at a time</sub>
 
 </td>
 <td align="center" valign="middle" width="5%">
@@ -101,7 +100,7 @@ This folder holds eleven networking labs. Each lab lives in its own folder with 
 <td align="center" valign="top" width="18%">
 
 **🔎 Test**<br>
-<sub>Check each<br>layer</sub>
+<sub>Blocked stays blocked,<br>allowed stays allowed</sub>
 
 </td>
 <td align="center" valign="middle" width="5%">
@@ -112,7 +111,7 @@ This folder holds eleven networking labs. Each lab lives in its own folder with 
 <td align="center" valign="top" width="18%">
 
 **✅ Verify**<br>
-<sub>Prove end-to-end<br>connectivity</sub>
+<sub>Prove the control<br>end-to-end</sub>
 
 </td>
 <td align="center" valign="middle" width="5%">
@@ -131,8 +130,8 @@ This folder holds eleven networking labs. Each lab lives in its own folder with 
 <td colspan="9" align="center">
 
 ![ping](https://img.shields.io/badge/ping-1A5276?style=for-the-badge)
-![show_ip_route](https://img.shields.io/badge/show_ip_route-117864?style=for-the-badge)
-![show_ip_dhcp_binding](https://img.shields.io/badge/show_ip_dhcp_binding-76448A?style=for-the-badge)
+![show_access_lists](https://img.shields.io/badge/show_access--lists-943126?style=for-the-badge)
+![show_run](https://img.shields.io/badge/show_running--config-117864?style=for-the-badge)
 ![copy_run_start](https://img.shields.io/badge/copy_run_start-B9770E?style=for-the-badge)<br>
 <sub>Cisco IOS show commands and simple client tests, all inside Packet Tracer</sub>
 
@@ -150,15 +149,14 @@ This folder holds eleven networking labs. Each lab lives in its own folder with 
 | Tool | Purpose |
 |------|---------|
 | Cisco Packet Tracer | Network simulation |
-| Cisco 2911 routers / 2960 switches | Routing, gateways and switching in the labs |
-| 802.1Q VLANs & Trunking | Segmenting departments and carrying VLANs over one uplink |
-| VLSM / CIDR | Right-sizing each subnet to actual host need, no waste |
-| Static, RIP, EIGRP, OSPF | Routing between networks, single and multi-area |
-| Route Redistribution | Exchanging routes between OSPF and EIGRP |
-| HSRP | First-hop redundancy and gateway failover |
-| DHCP | Automatic addressing per VLAN from the gateway router |
-| NAT / PAT | Address translation for private networks |
-| Syslog | Central logging across multiple sites |
+| Cisco routers / switches | Enforcement points for ACLs, SSH, port security and VPN |
+| Standard & Extended ACLs | Permit or deny traffic by source, protocol and port |
+| Named ACLs | Readable, editable rules in place of numbered lists |
+| SSH v2 & RSA keys | Encrypted remote management in place of Telnet |
+| VTY line hardening | Restricting how remote sessions can connect |
+| Port Security, BPDU Guard, PortFast | Protecting switch ports and preventing loops |
+| AAA (local) | Usernames, passwords and privilege levels on the device |
+| IPsec VPN (IKE, transform sets, crypto maps) | Encrypted site-to-site tunnel |
 
 ---
 
@@ -167,39 +165,34 @@ This folder holds eleven networking labs. Each lab lives in its own folder with 
 
 ```mermaid
 flowchart LR
-    subgraph G1["🔵 ADDRESSING"]
+    subgraph G1["🔴 ACCESS CONTROL"]
         direction TB
-        A1["VLSM &<br/>CIDR"]
+        A1["Standard ACL<br/>Implementation"]
+        A2["Extended ACL<br/>Telnet & Ping"]
     end
-    subgraph G2["🟣 SWITCHING & VLANs"]
+    subgraph G2["🟣 DEVICE HARDENING"]
         direction TB
-        B1["DHCP<br/>Multi-VLAN"]
-        B2["VLAN &<br/>Inter-VLAN"]
-        B3["VLAN<br/>Troubleshooting"]
+        B1["SSH Hardening<br/>Telnet Replacement"]
+        B2["Port Security<br/>& STP"]
     end
-    subgraph G3["🟠 ROUTING"]
+    subgraph G3["🔵 AUTHENTICATION"]
         direction TB
-        C1["Static · RIP<br/>EIGRP · OSPF"]
-        C2["OSPF<br/>Single Area"]
-        C3["Multi-Area<br/>OSPF"]
-        C4["OSPF-EIGRP<br/>Redistribution"]
+        C1["AAA<br/>Local"]
     end
-    subgraph G4["🟢 SERVICES & REDUNDANCY"]
+    subgraph G4["🟢 SECURE CONNECTIVITY"]
         direction TB
-        D1["NAT &<br/>PAT"]
-        D2["HSRP<br/>Failover"]
-        D3["Multi-Site<br/>Syslog"]
+        D1["IPsec VPN<br/>Site-to-Site"]
     end
     G1 ==> G2 ==> G3 ==> G4
 
-    classDef ad fill:#e8f1fb,stroke:#005EB8,stroke-width:2px,color:#000
-    classDef sw fill:#f0eaf8,stroke:#6f42c1,stroke-width:2px,color:#000
-    classDef rt fill:#fff4e5,stroke:#e08a00,stroke-width:2px,color:#000
-    classDef sv fill:#eef7ee,stroke:#2ea44f,stroke-width:2px,color:#000
-    class A1 ad
-    class B1,B2,B3 sw
-    class C1,C2,C3,C4 rt
-    class D1,D2,D3 sv
+    classDef ac fill:#fdeaea,stroke:#943126,stroke-width:2px,color:#000
+    classDef hd fill:#f0eaf8,stroke:#6f42c1,stroke-width:2px,color:#000
+    classDef au fill:#e8f1fb,stroke:#005EB8,stroke-width:2px,color:#000
+    classDef cn fill:#eef7ee,stroke:#2ea44f,stroke-width:2px,color:#000
+    class A1,A2 ac
+    class B1,B2 hd
+    class C1 au
+    class D1 cn
 ```
 
 <p align="center"><em>The groups show which topic each lab belongs to. Lab numbers are in the Labs Index.</em></p>
@@ -211,27 +204,19 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    Start(["🎯 What do you want to learn or fix?"]):::start
-    Start --> A["Split one address block<br/>into right-sized subnets"]:::q
-    Start --> B["Separate departments<br/>on one switch"]:::q
-    Start --> C["Clients need addresses<br/>automatically per VLAN"]:::q
-    Start --> D["VLAN or inter-VLAN<br/>routing is broken"]:::q
-    Start --> E["Routers should learn<br/>routes automatically"]:::q
-    Start --> F["Large network with<br/>several OSPF areas"]:::q
-    Start --> G["Two routing protocols<br/>must share routes"]:::q
-    Start --> H["Private hosts need<br/>outside access"]:::q
-    Start --> I["Gateway must not be a<br/>single point of failure"]:::q
-    Start --> J["Collect logs from<br/>several sites"]:::q
-    A --> S1(["VLSM & CIDR"]):::s
-    B --> S2(["VLAN & Inter-VLAN Routing"]):::s
-    C --> S3(["DHCP Multi-VLAN"]):::s
-    D --> S4(["VLAN Troubleshooting"]):::s
-    E --> S5(["Routing Protocols · OSPF Single Area"]):::s
-    F --> S6(["Multi-Area OSPF"]):::s
-    G --> S7(["OSPF-EIGRP Redistribution"]):::s
-    H --> S8(["NAT & PAT"]):::s
-    I --> S9(["HSRP Failover"]):::s
-    J --> S10(["Multi-Site Syslog"]):::s
+    Start(["🎯 What do you want to secure?"]):::start
+    Start --> A["Block one host but<br/>allow the others"]:::q
+    Start --> B["Control Telnet and ping<br/>between networks"]:::q
+    Start --> C["Replace Telnet with<br/>encrypted remote access"]:::q
+    Start --> D["Stop rogue devices on<br/>switch ports and loops"]:::q
+    Start --> E["Require logins with<br/>accounts on the device"]:::q
+    Start --> F["Connect two sites securely<br/>over an untrusted network"]:::q
+    A --> S1(["Standard ACL Implementation"]):::s
+    B --> S2(["Extended ACL — Telnet & Ping Control"]):::s
+    C --> S3(["SSH Hardening & Telnet Replacement"]):::s
+    D --> S4(["Port Security & STP Loop Prevention"]):::s
+    E --> S5(["AAA — Local Authentication"]):::s
+    F --> S6(["IPsec VPN Site-to-Site"]):::s
 
     classDef start fill:#943126,stroke:#571C16,stroke-width:3px,color:#FFFFFF,font-weight:bold
     classDef q fill:#1A5276,stroke:#0B2E43,stroke-width:3px,color:#FFFFFF,font-weight:bold
@@ -240,77 +225,83 @@ flowchart TD
 
 ---
 
-<a id="addressing"></a>
-## 🔵 Addressing (1 lab)
+<a id="access-control"></a>
+## 🔴 Access Control (2 labs)
 
-**Goal:** Turn one allocated block into subnets that match the real host need.
-
-| Focus | What the Lab Covers | Folder |
-|---|---|:---:|
-| VLSM & CIDR | Splits `172.16.0.0/20` into /22, /23, /24 building subnets and three /30 WAN links, then connects three routers with OSPF Area 0. | [📁 Lab](./01-enterprise-ip-addressing-vlsm-cidr/) |
-
----
-
-<a id="switching"></a>
-## 🟣 Switching & VLANs (3 labs)
-
-**Goal:** Segment departments, route between them, and find faults in a VLAN network.
+**Goal:** Decide exactly which traffic is allowed and which is denied, and prove it.
 
 | Focus | What the Lab Covers | Folder |
 |---|---|:---:|
-| DHCP Multi-VLAN | Three VLANs, Router-on-a-Stick inter-VLAN routing and per-VLAN DHCP pools on the gateway router, verified with client leases and the binding table. | [📁 Lab](./02-dhcp-multi-vlan-deployment/) |
-| VLAN & Inter-VLAN Routing | Enterprise VLAN design with routing between the VLANs. | [📁 Lab](./03-enterprise-network-vlan-intervlan-routing/) |
-| VLAN Troubleshooting | Finding and fixing faults in a VLAN and inter-VLAN routing network. | [📁 Lab](./04-enterprise-network-troubleshooting-vlan-intervlan-routing/) |
+| Standard ACL Implementation | A 3-router, 2-switch, 5-host topology (Branch-R1, Core-R2, HQ-R3). A standard ACL on Core-R2 denies Branch-PC1 by host IP while permitting Branch-PC0. Built first as numbered ACL 10, then migrated to a named ACL `BLOCK_PC1`, with the old ACL removed and the result re-verified. | [📁 Lab](./06-Standard_ACL_Implementation/) |
+| Extended ACL — Telnet & Ping Control | Port-based filtering, traffic direction and named ACLs to control Telnet and ping. | [📁 Lab](./02-Extended_ACL_Telnet_Ping_Control/) |
 
-### Where Traffic Can Break
+### Where Traffic Gets Filtered
 
 ```mermaid
 flowchart LR
-    A["💻 Host"]:::a --> B["🔀 Switch<br/>VLAN / port"]:::b --> C["🔗 Trunk<br/>to router"]:::c --> D["🚪 Gateway<br/>sub-interface"]:::d --> E["🌐 Other VLAN /<br/>network"]:::e
+    A["💻 Source host"]:::a --> B["🔀 Switch"]:::b --> C["🚪 Router interface<br/>ACL in / out"]:::c --> D["🌐 Destination<br/>network"]:::d
 
     classDef a fill:#1A5276,stroke:#0B2E43,stroke-width:3px,color:#FFFFFF,font-weight:bold
-    classDef b fill:#943126,stroke:#571C16,stroke-width:3px,color:#FFFFFF,font-weight:bold
-    classDef c fill:#B9770E,stroke:#6E4409,stroke-width:3px,color:#FFFFFF,font-weight:bold
-    classDef d fill:#76448A,stroke:#432752,stroke-width:3px,color:#FFFFFF,font-weight:bold
-    classDef e fill:#2C3E70,stroke:#131B3A,stroke-width:3px,color:#FFFFFF,font-weight:bold
+    classDef b fill:#B9770E,stroke:#6E4409,stroke-width:3px,color:#FFFFFF,font-weight:bold
+    classDef c fill:#943126,stroke:#571C16,stroke-width:3px,color:#FFFFFF,font-weight:bold
+    classDef d fill:#2C3E70,stroke:#131B3A,stroke-width:3px,color:#FFFFFF,font-weight:bold
 ```
 
 ---
 
-<a id="routing"></a>
-## 🟠 Routing (4 labs)
+<a id="hardening"></a>
+## 🟣 Device Hardening (2 labs)
 
-**Goal:** Get traffic between networks with static routes and dynamic routing protocols.
+**Goal:** Close the easy ways into a switch or router, and stop layer-2 problems before they spread.
 
 | Focus | What the Lab Covers | Folder |
 |---|---|:---:|
-| Routing Protocols | Static routing, RIP, EIGRP and OSPF. | [📁 Lab](./05-routing-protocols-ospf-eigrp-rip-static/) |
-| OSPF Single Area | Enterprise network routed with single-area OSPF. | [📁 Lab](./06-enterprise-network-ospf-single-area-routing-lab/) |
-| Multi-Area OSPF | OSPF with more than one area. | [📁 Lab](./07-multi-area-ospf-lab/) |
-| OSPF–EIGRP Redistribution | Exchanging routes between OSPF and EIGRP. | [📁 Lab](./08-ospf-eigrp-redistribution/) |
+| SSH Hardening & Telnet Replacement | RSA keys, SSH v2 and VTY line hardening to replace Telnet. | [📁 Lab](./05-SSH_Hardening_Telnet_Replacement/) |
+| Port Security & STP Loop Prevention | MAC filtering, sticky MAC, BPDU guard and PortFast. | [📁 Lab](./04-Port_Security_STP_Loop_Prevention/) |
 
 ---
 
-<a id="services"></a>
-## 🟢 Services & Redundancy (3 labs)
+<a id="authentication"></a>
+## 🔵 Authentication (1 lab)
 
-**Goal:** Keep the network reachable, translated and observable.
+**Goal:** Make every login to a device tied to an account and a privilege level.
 
 | Focus | What the Lab Covers | Folder |
 |---|---|:---:|
-| NAT & PAT | Address translation for private networks. | [📁 Lab](./09-nat-pat-address-translation/) |
-| HSRP Failover | First-hop redundancy with gateway failover. | [📁 Lab](./10-hsrp-redundancy-failover/) |
-| Multi-Site Syslog | Central logging across multiple sites. | [📁 Lab](./11-syslog-multisite-logging-enterprise/) |
+| AAA — Local Authentication | Username and password accounts, privilege levels and local AAA. | [📁 Lab](./01-AAA_Local_Authentication/) |
+
+### Where Access Is Controlled
+
+```mermaid
+flowchart LR
+    A["👤 Admin"]:::a --> B["🔌 Console / VTY<br/>SSH"]:::b --> C["🔑 AAA login<br/>username + password"]:::c --> D["🎚 Privilege level"]:::d
+
+    classDef a fill:#1A5276,stroke:#0B2E43,stroke-width:3px,color:#FFFFFF,font-weight:bold
+    classDef b fill:#943126,stroke:#571C16,stroke-width:3px,color:#FFFFFF,font-weight:bold
+    classDef c fill:#B9770E,stroke:#6E4409,stroke-width:3px,color:#FFFFFF,font-weight:bold
+    classDef d fill:#1E8449,stroke:#0E4A28,stroke-width:3px,color:#FFFFFF,font-weight:bold
+```
+
+---
+
+<a id="connectivity"></a>
+## 🟢 Secure Connectivity (1 lab)
+
+**Goal:** Carry traffic between two sites over an untrusted network without exposing it.
+
+| Focus | What the Lab Covers | Folder |
+|---|---|:---:|
+| IPsec VPN Site-to-Site | IKE phase 1 and 2, transform sets and crypto maps to build an encrypted tunnel between sites. | [📁 Lab](./03-IPsec_VPN_Site_to_Site/) |
 
 ### 🔍 Analyst Note — Why the Simple Test Comes First
 
-Every lab starts with the cheapest test before deeper checks. It rules out a whole group of causes in seconds.
+Every lab checks the cheapest thing first. It rules out a whole group of causes in seconds.
 
 ```mermaid
 flowchart TD
-    A["🎯 Connectivity problem"]:::start --> B["⚡ Cheapest test first<br/>ping gateway · check link · check IP and mask"]:::work
+    A["🎯 Control not behaving"]:::start --> B["⚡ Cheapest test first<br/>ping · show access-lists · check interface and direction"]:::work
     B -->|Fault is here| C["✅ Fix it and verify"]:::good
-    B -->|Fault is not here| D["🔎 Next layer<br/>VLAN · route · translation · redundancy"]:::work
+    B -->|Fault is not here| D["🔎 Next layer<br/>ACL order · keys · trunk · tunnel policy"]:::work
     D -->|Still unresolved| E["📨 Document findings and capture evidence"]:::bad
 
     classDef start fill:#e8f1fb,stroke:#005EB8,stroke-width:2px,color:#000
@@ -326,28 +317,26 @@ flowchart TD
 
 | 🛡️ Domain | 📌 Where It Appears | ✅ What Is Shown |
 |---|---|---|
-| IP Addressing & Subnetting | VLSM & CIDR lab | Right-sized subnets, usable ranges, WAN /30 links |
-| Switching & VLANs | DHCP Multi-VLAN, VLAN & Inter-VLAN labs | VLANs, access ports, trunks, Router-on-a-Stick |
-| Network Services | DHCP Multi-VLAN, NAT & PAT, Syslog labs | DHCP pools, translation, central logging |
-| Dynamic Routing | Routing Protocols, OSPF Single and Multi-Area labs | Static, RIP, EIGRP, OSPF |
-| Route Redistribution | OSPF–EIGRP Redistribution lab | Sharing routes between two protocols |
-| Redundancy | HSRP Failover lab | First-hop gateway failover |
-| Troubleshooting | VLAN Troubleshooting lab | Finding faults layer by layer |
+| Traffic Filtering | Standard ACL, Extended ACL labs | Permit and deny rules, wildcard masks, named ACLs, ports and direction |
+| Secure Remote Management | SSH Hardening lab | RSA keys, SSH v2, VTY restrictions |
+| Layer-2 Protection | Port Security & STP lab | Sticky MAC, BPDU guard, PortFast, loop prevention |
+| Authentication | AAA Local lab | Local accounts and privilege levels |
+| Encrypted Connectivity | IPsec VPN lab | IKE phases, transform sets, crypto maps |
 
 ---
 
 <a id="pipeline"></a>
-## 🧭 Network Method Pipeline
+## 🧭 Security Method Pipeline
 
-How every lab turns a requirement into a verified network
+How every lab turns a security requirement into a verified control
 
 ```mermaid
 flowchart TB
-    Req["🎯 REQUIREMENT<br/>What must the network do"]:::symClass
-    Des["🗺 DESIGN<br/>Topology and addressing plan"]:::isoClass
-    Cfg["⚙️ CONFIGURE<br/>One change at a time"]:::decClass
-    Tst["🔎 TEST<br/>Check each layer"]:::fixClass
-    Ver["✅ VERIFY<br/>Prove end-to-end"]:::verClass
+    Req["🎯 REQUIREMENT<br/>What must be allowed or blocked"]:::symClass
+    Des["🗺 DESIGN<br/>Topology and policy"]:::isoClass
+    Cfg["⚙️ CONFIGURE<br/>One control at a time"]:::decClass
+    Tst["🔎 TEST<br/>Blocked and allowed cases"]:::fixClass
+    Ver["✅ VERIFY<br/>Prove it end-to-end"]:::verClass
     Sav["💾 SAVE<br/>Configs and evidence"]:::repClass
     Doc["📝 DOCUMENT<br/>Lessons and screenshots"]:::docClass
 
@@ -358,7 +347,7 @@ flowchart TB
     classDef decClass fill:#76448A,stroke:#432752,stroke-width:5px,color:#FFFFFF,font-weight:bold,font-size:16px
     classDef fixClass fill:#B9770E,stroke:#6E4409,stroke-width:5px,color:#FFFFFF,font-weight:bold,font-size:16px
     classDef verClass fill:#1E8449,stroke:#0E4A28,stroke-width:5px,color:#FFFFFF,font-weight:bold,font-size:16px
-    classDef repClass fill:#148F77,stroke:#0B5142,stroke-width:5px,color:#FFFFFF,font-weight:bold,font-size:16px
+    classDef repClass fill:#117864,stroke:#083D33,stroke-width:5px,color:#FFFFFF,font-weight:bold,font-size:16px
     classDef docClass fill:#943126,stroke:#571C16,stroke-width:5px,color:#FFFFFF,font-weight:bold,font-size:16px
 
     linkStyle default stroke:#2C3E70,stroke-width:4px
@@ -369,12 +358,11 @@ flowchart TB
 <a id="verification"></a>
 ## ✅ Verification, Not Assumption
 
-A recurring rule across the labs: a configuration is not done until it has been tested.
+A recurring rule across the labs: a security control is not done until it has been tested in both directions — what it should block, and what it should still allow.
 
 | Lab | Verification Step |
 |---|---|
-| VLSM & CIDR | Ping from PC-A to PC-B and PC-C, and `show ip route ospf` on all three routers |
-| DHCP Multi-VLAN | Client leases, `show ip dhcp binding`, `show ip interface brief`, and an inter-VLAN ping |
+| Standard ACL Implementation | Branch-PC1 denied and Branch-PC0 permitted; after migrating from numbered ACL 10 to the named ACL `BLOCK_PC1` and removing the old ACL, the result was re-verified |
 | All other labs | See the verification step in each lab's README |
 
 ---
@@ -384,17 +372,19 @@ A recurring rule across the labs: a configuration is not done until it has been 
 
 | Command | Purpose |
 |---------|---------|
-| `vlan <id>` / `name <name>` | Create and name a VLAN |
-| `switchport mode access` / `switchport access vlan <id>` | Assign a port to a VLAN |
-| `switchport mode trunk` | Carry multiple VLANs over one uplink |
-| `interface g0/0.<id>` + `encapsulation dot1Q <id>` | Router sub-interface for Router-on-a-Stick |
-| `ip dhcp pool <name>` + `network` / `default-router` / `dns-server` | Define a DHCP pool per subnet |
-| `ip address <ip> <mask>` | Assign IP to interface |
-| `router ospf <process-id>` + `network <ip> <wildcard> area <id>` | Enable OSPF and advertise a network |
-| `show ip route ospf` / `show ip dhcp binding` / `show ip interface brief` | Verify routes, leases and interface status |
+| `access-list <number> deny/permit host <ip>` | Numbered standard ACL entry |
+| `ip access-list standard/extended <name>` | Create a named ACL |
+| `ip access-group <name> in/out` | Apply an ACL to an interface |
+| `show access-lists` | Check ACL rules and hit counters |
+| `crypto key generate rsa` + `ip ssh version 2` | Generate keys and enable SSH v2 |
+| `line vty 0 4` + `transport input ssh` | Allow only SSH on remote lines |
+| `switchport port-security` + `switchport port-security mac-address sticky` | Limit and learn MAC addresses on a port |
+| `spanning-tree bpduguard enable` / `spanning-tree portfast` | Protect edge ports and speed link-up |
+| `username <name> privilege <level> secret <password>` + `aaa new-model` | Local accounts and AAA |
+| `crypto isakmp policy` / `crypto map` | IKE phase 1 policy and VPN crypto map |
 | `copy running-config startup-config` | Save configuration |
 
-> Commands from the VLSM and DHCP Multi-VLAN labs. Add commands from the other labs as needed.
+> Common IOS commands for these topics. Check the exact commands used in each lab against that lab's README.
 
 ---
 
@@ -403,8 +393,8 @@ A recurring rule across the labs: a configuration is not done until it has been 
 
 | ❌ Challenge | ✅ Solution |
 |---|---|
-| Wrong subnet mask on PC-C, but pings still worked | Proxy ARP on the router was answering for it. Corrected the mask to 255.255.255.0 and re-verified |
-| First ping between VLANs showed 1 timeout out of 4 | Expected: the first packet triggers ARP resolution. The retry came back 4/4 |
+| Moving a working numbered ACL to a named ACL without leaving stale rules behind | Built the named ACL `BLOCK_PC1`, removed the old numbered ACL 10, and re-verified that PC1 stayed blocked and PC0 stayed permitted |
+| Other labs | See the Challenges & Fixes section in each lab's README |
 
 ---
 
@@ -412,7 +402,7 @@ A recurring rule across the labs: a configuration is not done until it has been 
 ## 🚧 Scope & Limitations
 
 - **Simulated networks:** Built in Cisco Packet Tracer, not on physical devices.
-- **Evidence lives in the lab folders:** Screenshots and `.pkt` files are stored in each lab's folder.
+- **Evidence lives in the lab folders:** Screenshots are stored in each lab's folder.
 - **Cisco syntax:** Commands shown are Cisco IOS. Other vendors use different syntax.
 - **One design per lab:** Other valid designs for the same goal are not covered.
 - **Not a production template:** Real networks need their own security review and change control.
@@ -424,9 +414,9 @@ These limits are stated so the labs are read as demonstrations, not as guarantee
 <a id="what-i-learned"></a>
 ## 🧠 What I Learned
 
-- **Plan the addressing first.** A clear plan prevents most later faults.
-- **A ping success does not confirm a config is correct.** Proxy ARP can hide a wrong mask, so check the actual settings.
-- **Server-side proof can be stronger.** A router's DHCP binding table shows every lease at once.
+- **Test both directions.** A control that blocks the target is only half proven; the hosts that should still work must be checked too.
+- **Clean up after a migration.** Moving from a numbered ACL to a named one means removing the old one and re-verifying.
+- **Replace weak protocols, don't just add strong ones.** SSH is only a gain once Telnet is actually turned off.
 - **Change one thing at a time and test layer by layer.** Otherwise the real cause stays unknown.
 - **Save the evidence.** Configs, outputs and screenshots make each lab repeatable.
 
@@ -435,13 +425,12 @@ These limits are stated so the labs are read as demonstrations, not as guarantee
 <a id="skills-demonstrated"></a>
 ## 🛠️ Skills Demonstrated
 
-- Designing IP addressing plans with VLSM and CIDR
-- Building VLANs, trunks and inter-VLAN routing
-- Configuring static routing, RIP, EIGRP and OSPF (single and multi-area)
-- Redistributing routes between OSPF and EIGRP
-- Setting up DHCP, NAT/PAT and HSRP
-- Configuring multi-site syslog logging
-- Troubleshooting VLAN networks layer by layer
+- Writing and applying standard and extended ACLs, including named ACLs
+- Hardening remote management with SSH v2, RSA keys and VTY restrictions
+- Protecting switch ports with port security, BPDU guard and PortFast
+- Configuring local AAA with usernames and privilege levels
+- Building a site-to-site IPsec VPN with IKE phases, transform sets and crypto maps
+- Verifying security controls in both the blocked and allowed direction
 - Documenting each lab with commands, screenshots and lessons
 
 ---
@@ -451,17 +440,12 @@ These limits are stated so the labs are read as demonstrations, not as guarantee
 
 | Lab # | Lab | Group | Folder |
 |:---:|---|:---:|---|
-| 01 | IP Addressing, VLSM & CIDR | Addressing | [`01-enterprise-ip-addressing-vlsm-cidr`](./01-enterprise-ip-addressing-vlsm-cidr/) |
-| 02 | DHCP Multi-VLAN Deployment | Switching | [`02-dhcp-multi-vlan-deployment`](./02-dhcp-multi-vlan-deployment/) |
-| 03 | Enterprise VLAN & Inter-VLAN Routing | Switching | [`03-enterprise-network-vlan-intervlan-routing`](./03-enterprise-network-vlan-intervlan-routing/) |
-| 04 | VLAN & Inter-VLAN Troubleshooting | Switching | [`04-enterprise-network-troubleshooting-vlan-intervlan-routing`](./04-enterprise-network-troubleshooting-vlan-intervlan-routing/) |
-| 05 | Routing Protocols (Static, RIP, EIGRP, OSPF) | Routing | [`05-routing-protocols-ospf-eigrp-rip-static`](./05-routing-protocols-ospf-eigrp-rip-static/) |
-| 06 | Enterprise OSPF Single-Area Routing | Routing | [`06-enterprise-network-ospf-single-area-routing-lab`](./06-enterprise-network-ospf-single-area-routing-lab/) |
-| 07 | Multi-Area OSPF | Routing | [`07-multi-area-ospf-lab`](./07-multi-area-ospf-lab/) |
-| 08 | OSPF–EIGRP Redistribution | Routing | [`08-ospf-eigrp-redistribution`](./08-ospf-eigrp-redistribution/) |
-| 09 | NAT & PAT Address Translation | Services | [`09-nat-pat-address-translation`](./09-nat-pat-address-translation/) |
-| 10 | HSRP Redundancy & Failover | Services | [`10-hsrp-redundancy-failover`](./10-hsrp-redundancy-failover/) |
-| 11 | Multi-Site Syslog Logging | Services | [`11-syslog-multisite-logging-enterprise`](./11-syslog-multisite-logging-enterprise/) |
+| 01 | AAA — Local Authentication | Authentication | [`01-AAA_Local_Authentication`](./01-AAA_Local_Authentication/) |
+| 02 | Extended ACL — Telnet & Ping Control | Access Control | [`02-Extended_ACL_Telnet_Ping_Control`](./02-Extended_ACL_Telnet_Ping_Control/) |
+| 03 | IPsec VPN Site-to-Site | Connectivity | [`03-IPsec_VPN_Site_to_Site`](./03-IPsec_VPN_Site_to_Site/) |
+| 04 | Port Security & STP Loop Prevention | Hardening | [`04-Port_Security_STP_Loop_Prevention`](./04-Port_Security_STP_Loop_Prevention/) |
+| 05 | SSH Hardening & Telnet Replacement | Hardening | [`05-SSH_Hardening_Telnet_Replacement`](./05-SSH_Hardening_Telnet_Replacement/) |
+| 06 | Standard ACL Implementation | Access Control | [`06-Standard_ACL_Implementation`](./06-Standard_ACL_Implementation/) |
 
 ---
 
@@ -471,19 +455,14 @@ These limits are stated so the labs are read as demonstrations, not as guarantee
 ```text
 Cisco-Networking-Lab-Portfolio/
 |-- 01-Networking/
-|   |-- README.md
-|   |-- 01-enterprise-ip-addressing-vlsm-cidr/
-|   |-- 02-dhcp-multi-vlan-deployment/
-|   |-- 03-enterprise-network-vlan-intervlan-routing/
-|   |-- 04-enterprise-network-troubleshooting-vlan-intervlan-routing/
-|   |-- 05-routing-protocols-ospf-eigrp-rip-static/
-|   |-- 06-enterprise-network-ospf-single-area-routing-lab/
-|   |-- 07-multi-area-ospf-lab/
-|   |-- 08-ospf-eigrp-redistribution/
-|   |-- 09-nat-pat-address-translation/
-|   |-- 10-hsrp-redundancy-failover/
-|   `-- 11-syslog-multisite-logging-enterprise/
 |-- 02-Network-Security/
+|   |-- README.md
+|   |-- 01-AAA_Local_Authentication/
+|   |-- 02-Extended_ACL_Telnet_Ping_Control/
+|   |-- 03-IPsec_VPN_Site_to_Site/
+|   |-- 04-Port_Security_STP_Loop_Prevention/
+|   |-- 05-SSH_Hardening_Telnet_Replacement/
+|   `-- 06-Standard_ACL_Implementation/
 |-- 03-IT-Support-Troubleshooting/
 |-- LICENSE
 `-- README.md
@@ -491,7 +470,7 @@ Cisco-Networking-Lab-Portfolio/
 
 <div align="center">
 
-📶 **[What is DHCP](https://www.cloudflare.com/learning/network-layer/what-is-dhcp/)** · 🧮 **[What is a subnet](https://www.cloudflare.com/learning/network-layer/what-is-a-subnet/)** · 🔀 **[What is a LAN](https://www.cloudflare.com/learning/network-layer/what-is-a-lan/)** · 🪟 **[Windows Commands](https://learn.microsoft.com/windows-server/administration/windows-commands/windows-commands)**
+🔐 **[What is an ACL](https://www.cloudflare.com/learning/access-management/what-is-an-access-control-list/)** · 🔑 **[What is SSH](https://www.cloudflare.com/learning/access-management/what-is-ssh/)** · 🌐 **[What is a VPN](https://www.cloudflare.com/learning/access-management/what-is-a-vpn/)**
 
 [⬅️ Back to Portfolio Root](../README.md)
 
