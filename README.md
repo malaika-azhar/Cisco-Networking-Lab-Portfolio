@@ -2,7 +2,9 @@
 
 # 🌐 Cisco Networking Lab Portfolio
 
-**malaika-azhar**
+**Malaika Azhar** · [github.com/malaika-azhar](https://github.com/malaika-azhar)
+
+*Networking · Network Security · IT Support*
 
 A hands-on collection of Cisco Packet Tracer and Windows troubleshooting labs, organized into three tracks — core networking, network security, and IT support/troubleshooting. Every lab documents the topology, the configuration, the verification, and the gaps, not just the happy path.
 
@@ -11,7 +13,7 @@ A hands-on collection of Cisco Packet Tracer and Windows troubleshooting labs, o
 ![IT Support](https://img.shields.io/badge/Track-IT_Support-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![Tool](https://img.shields.io/badge/Tool-Packet_Tracer_%2F_Windows_10-E95420?style=for-the-badge)
 ![Labs](https://img.shields.io/badge/Labs-26_Total-2ea44f?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-In_Progress-B9770E?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Complete-2ea44f?style=for-the-badge)
 
 </div>
 
@@ -119,7 +121,7 @@ timeline
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '13px'}, 'flowchart': {'nodeSpacing': 16, 'rankSpacing': 30}}}%%
 flowchart LR
-    A["Addressing<br/>VLSM/CIDR"]:::seen --> B["VLANs<br/>& DHCP"]:::seen --> C["Inter-VLAN<br/>Routing"]:::seen --> D["Routing Protocols<br/>OSPF·EIGRP·RIP"]:::unseen --> E["NAT/PAT<br/>& HSRP"]:::unseen --> F["Syslog<br/>Logging"]:::unseen
+    A["Addressing<br/>VLSM/CIDR"]:::seen --> B["VLANs<br/>& DHCP"]:::seen --> C["Inter-VLAN<br/>Routing"]:::seen --> D["Routing Protocols<br/>OSPF·EIGRP·RIP"]:::seen --> E["NAT/PAT<br/>& HSRP"]:::seen --> F["Syslog<br/>Logging"]:::seen
     classDef seen fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF
     classDef unseen fill:#EAECEE,stroke:#707B7C,color:#3B4142,stroke-dasharray: 4 3
     linkStyle default stroke:#2C3E50,stroke-width:2px
@@ -129,15 +131,15 @@ flowchart LR
 |:---:|---|---|:---:|
 | 01 | [Enterprise IP Addressing, VLSM & CIDR](./01-Networking/01-Enterprise-ip-addressing-vlsm-cidr) | 172.16.0.0/20 split via VLSM across 3 buildings + 3 WAN links, OSPF Area 0 | ✅ Complete |
 | 02 | [DHCP Multi-VLAN Deployment](./01-Networking/02-DHCP-multi-vlan-deployment) | 3 VLANs, Router-on-a-Stick, per-VLAN DHCP pools | ✅ Complete |
-| 03 | [VLAN & Inter-VLAN Routing](./01-Networking/03-Enterprise-network-vlan-intervlan-routing) | VTP sync, InterVLAN routing, SSH, port security, ACL | 🔄 In Progress |
-| 04 | [VLAN/InterVLAN Troubleshooting](./01-Networking/04-Enterprise-network-troubleshooting-vlan-intervlan-routing) | Diagnosing VLAN/InterVLAN routing faults | ⏳ Planned |
-| 05 | [OSPF, EIGRP, RIP, Static Routing](./01-Networking/05-Routing-protocols-ospf-eigrp-rip-static) | Multi-protocol routing comparison | ⏳ Planned |
-| 06 | [OSPF Single-Area Routing](./01-Networking/06-Enterprise-network-ospf-single-area-routing-lab) | Single-area OSPF deployment | ⏳ Planned |
-| 07 | [Multi-Area OSPF](./01-Networking/07-Multi-area-ospf-lab) | Multi-area OSPF design and summarization | ⏳ Planned |
-| 08 | [OSPF/EIGRP Redistribution](./01-Networking/08-OSPF-eigrp-redistribution) | Redistributing routes between OSPF and EIGRP | ⏳ Planned |
-| 09 | [NAT/PAT Translation](./01-Networking/09-NAT-pat-address-translation) | NAT and PAT configuration | ⏳ Planned |
-| 10 | [HSRP Redundancy & Failover](./01-Networking/10-HSRP-redundancy-failover) | First-hop redundancy | ⏳ Planned |
-| 11 | [Syslog Multisite Logging](./01-Networking/11-Syslog-multisite-logging-enterprise) | Centralized logging across an enterprise topology | ⏳ Planned |
+| 03 | [VLAN & Inter-VLAN Routing](./01-Networking/03-Enterprise-network-vlan-intervlan-routing) | VTP sync, InterVLAN routing, SSH, port security, ACL | ✅ Complete |
+| 04 | [VLAN/InterVLAN Troubleshooting](./01-Networking/04-Enterprise-network-troubleshooting-vlan-intervlan-routing) | Diagnosing VLAN/InterVLAN routing faults | ✅ Complete |
+| 05 | [OSPF, EIGRP, RIP, Static Routing](./01-Networking/05-Routing-protocols-ospf-eigrp-rip-static) | Multi-protocol routing comparison | ✅ Complete |
+| 06 | [OSPF Single-Area Routing](./01-Networking/06-Enterprise-network-ospf-single-area-routing-lab) | Single-area OSPF deployment | ✅ Complete |
+| 07 | [Multi-Area OSPF](./01-Networking/07-Multi-area-ospf-lab) | Multi-area OSPF design and summarization | ✅ Complete |
+| 08 | [OSPF/EIGRP Redistribution](./01-Networking/08-OSPF-eigrp-redistribution) | Redistributing routes between OSPF and EIGRP | ✅ Complete |
+| 09 | [NAT/PAT Translation](./01-Networking/09-NAT-pat-address-translation) | NAT and PAT configuration | ✅ Complete |
+| 10 | [HSRP Redundancy & Failover](./01-Networking/10-HSRP-redundancy-failover) | First-hop redundancy | ✅ Complete |
+| 11 | [Syslog Multisite Logging](./01-Networking/11-Syslog-multisite-logging-enterprise) | Centralized logging across an enterprise topology | ✅ Complete |
 
 ---
 
@@ -147,7 +149,7 @@ flowchart LR
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '13px'}, 'flowchart': {'nodeSpacing': 16, 'rankSpacing': 30}}}%%
 flowchart LR
-    A["AAA<br/>Authentication"]:::unseen --> B["ACLs<br/>Std/Extended"]:::seen --> C["Port Security<br/>& STP"]:::unseen --> D["SSH<br/>Hardening"]:::unseen --> E["IPsec VPN<br/>Site-to-Site"]:::unseen
+    A["AAA<br/>Authentication"]:::seen --> B["ACLs<br/>Std/Extended"]:::seen --> C["Port Security<br/>& STP"]:::seen --> D["SSH<br/>Hardening"]:::seen --> E["IPsec VPN<br/>Site-to-Site"]:::seen
     classDef seen fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF
     classDef unseen fill:#EAECEE,stroke:#707B7C,color:#3B4142,stroke-dasharray: 4 3
     linkStyle default stroke:#2C3E50,stroke-width:2px
@@ -155,11 +157,11 @@ flowchart LR
 
 | # | Lab | Focus | Status |
 |:---:|---|---|:---:|
-| 01 | [AAA Local Authentication](./02-Network-Security/01-AAA_Local_Authentication) | Local AAA authentication | ⏳ Planned |
-| 02 | [Extended ACL — Telnet/Ping](./02-Network-Security/02-Extended_ACL_Telnet_Ping_Control) | Extended ACLs controlling Telnet and ICMP | ⏳ Planned |
-| 03 | [IPsec VPN Site-to-Site](./02-Network-Security/03-IPsec_VPN_Site_to_Site) | Site-to-site IPsec VPN tunnel | ⏳ Planned |
-| 04 | [Port Security & STP Loop Prevention](./02-Network-Security/04-Port_Security_STP_Loop_Prevention) | Port security plus STP loop prevention | ⏳ Planned |
-| 05 | [SSH Hardening](./02-Network-Security/05-SSH_Hardening_Telnet_Replacement) | Replacing Telnet with SSH v2 | ⏳ Planned |
+| 01 | [AAA Local Authentication](./02-Network-Security/01-AAA_Local_Authentication) | Local AAA authentication | ✅ Complete |
+| 02 | [Extended ACL — Telnet/Ping](./02-Network-Security/02-Extended_ACL_Telnet_Ping_Control) | Extended ACLs controlling Telnet and ICMP | ✅ Complete |
+| 03 | [IPsec VPN Site-to-Site](./02-Network-Security/03-IPsec_VPN_Site_to_Site) | Site-to-site IPsec VPN tunnel | ✅ Complete |
+| 04 | [Port Security & STP Loop Prevention](./02-Network-Security/04-Port_Security_STP_Loop_Prevention) | Port security plus STP loop prevention | ✅ Complete |
+| 05 | [SSH Hardening](./02-Network-Security/05-SSH_Hardening_Telnet_Replacement) | Replacing Telnet with SSH v2 | ✅ Complete |
 | 06 | [Standard ACL Implementation](./02-Network-Security/06-Standard_ACL_Implementation) | Numbered → named ACL, host-based deny/permit | ✅ Complete |
 
 ---
@@ -171,9 +173,9 @@ flowchart LR
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '13px'}, 'flowchart': {'nodeSpacing': 20, 'rankSpacing': 32, 'padding': 8}}}%%
 flowchart TB
     SYMPTOM(("🗣️ User-reported<br/>symptom")):::start
-    SYMPTOM --> LOGIN["🔑 Login/AD"]:::unseen
-    SYMPTOM --> NET["🌐 No connectivity"]:::unseen
-    SYMPTOM --> APP["📧 App/print/email"]:::mixed
+    SYMPTOM --> LOGIN["🔑 Login/AD"]:::seen
+    SYMPTOM --> NET["🌐 No connectivity"]:::seen
+    SYMPTOM --> APP["📧 App/print/email"]:::seen
     SYMPTOM --> SLOW["🐢 Slow/crash/BSOD"]:::seen
     LOGIN & NET & APP & SLOW --> ROOT(("🎯 Root cause<br/>identified")):::good
     classDef start fill:#2C3E70,stroke:#131B3A,stroke-width:2px,color:#FFFFFF
@@ -186,12 +188,12 @@ flowchart TB
 
 | # | Lab | Focus | Status |
 |:---:|---|---|:---:|
-| 01 | [AD User Account Issues](./03-IT-Support-Troubleshooting/01-Active-Directory-User-Account-Issues) | Diagnosing AD account/login problems | ⏳ Planned |
-| 02 | [DNS Troubleshooting](./03-IT-Support-Troubleshooting/02-DNS_Troubleshooting_Resolution) | DNS resolution failure diagnosis | ⏳ Planned |
-| 03 | [Email Troubleshooting](./03-IT-Support-Troubleshooting/03-Email-Troubleshooting) | Email client/server issue diagnosis | ⏳ Planned |
-| 04 | [Gateway IP Conflict Resolution](./03-IT-Support-Troubleshooting/04-Gateway_IP_Conflict_Resolution) | Resolving duplicate gateway IPs | ⏳ Planned |
-| 05 | [LAN/Wi-Fi Diagnostics](./03-IT-Support-Troubleshooting/05-LAN-WiFi-Connectivity-Diagnostics) | Wired and wireless connectivity troubleshooting | ⏳ Planned |
-| 06 | [Printer & Network Print Troubleshooting](./03-IT-Support-Troubleshooting/06-Printer_Network_Print_Troubleshooting) | Network print failure diagnosis | ⏳ Planned |
+| 01 | [AD User Account Issues](./03-IT-Support-Troubleshooting/01-Active-Directory-User-Account-Issues) | Diagnosing AD account/login problems | ✅ Complete |
+| 02 | [DNS Troubleshooting](./03-IT-Support-Troubleshooting/02-DNS_Troubleshooting_Resolution) | DNS resolution failure diagnosis | ✅ Complete |
+| 03 | [Email Troubleshooting](./03-IT-Support-Troubleshooting/03-Email-Troubleshooting) | Email client/server issue diagnosis | ✅ Complete |
+| 04 | [Gateway IP Conflict Resolution](./03-IT-Support-Troubleshooting/04-Gateway_IP_Conflict_Resolution) | Resolving duplicate gateway IPs | ✅ Complete |
+| 05 | [LAN/Wi-Fi Diagnostics](./03-IT-Support-Troubleshooting/05-LAN-WiFi-Connectivity-Diagnostics) | Wired and wireless connectivity troubleshooting | ✅ Complete |
+| 06 | [Printer & Network Print Troubleshooting](./03-IT-Support-Troubleshooting/06-Printer_Network_Print_Troubleshooting) | Network print failure diagnosis | ✅ Complete |
 | 07 | [Remote Desktop & VPN Troubleshooting](./03-IT-Support-Troubleshooting/07-Remote_Desktop_VPN_Troubleshooting) | 6 RDP faults staged/fixed — firewall, service, registry, GPO | ✅ Complete |
 | 08 | [System Diagnostics & Desktop Support](./03-IT-Support-Troubleshooting/08-System_Diagnostics_Desktop_Support) | High CPU/RAM, driver faults, app crashes, BSOD, SFC/DISM | ✅ Complete |
 | 09 | [Windows Update & Patch Management](./03-IT-Support-Troubleshooting/09-Windows_Update_Patch_Management) | Service repair, DISM/SFC, PSWindowsUpdate fix | ✅ Complete |
@@ -204,9 +206,9 @@ flowchart TB
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px'}, 'flowchart': {'nodeSpacing': 24, 'rankSpacing': 34, 'padding': 8}}}%%
 flowchart LR
-    N["🔷 01 Networking"]:::n --> NP["✅ 2 of 11 complete"]:::ok
-    S["🔺 02 Security"]:::s --> SP["✅ 1 of 6 complete"]:::ok
-    I["🖥️ 03 IT Support"]:::i --> IP["✅ 3 of 9 complete"]:::ok
+    N["🔷 01 Networking"]:::n --> NP["✅ 11 of 11 complete"]:::ok
+    S["🔺 02 Security"]:::s --> SP["✅ 6 of 6 complete"]:::ok
+    I["🖥️ 03 IT Support"]:::i --> IP["✅ 9 of 9 complete"]:::ok
     classDef n fill:#1A5276,stroke:#0B2E43,stroke-width:2px,color:#FFFFFF
     classDef s fill:#943126,stroke:#571C16,stroke-width:2px,color:#FFFFFF
     classDef i fill:#117864,stroke:#083D33,stroke-width:2px,color:#FFFFFF
